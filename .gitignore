@@ -1,0 +1,7 @@
+pyvenv.cfg
+Scripts
+Lib
+__pycache__
+*.pyc
+*.idea
+postgresql
