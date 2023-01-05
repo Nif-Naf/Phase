@@ -1,4 +1,5 @@
-from rest_framework import routers
+from django.urls import path
+from rest_framework.routers import SimpleRouter
 
 from views.views import (
     TenantListApiView,
@@ -6,10 +7,30 @@ from views.views import (
     ProviderListApiView,
 )
 
-router = routers.SimpleRouter()
+router = SimpleRouter()
 
-router.registry('views/tenant', TenantListApiView)
+urlpatterns = [
+    path('api_views/tenant/', TenantListApiView.as_view()),
+    path('api_views/worker/', WorkerListApiView.as_view()),
+    path('api_views/provider/', ProviderListApiView.as_view()),
+]
 
-router.registry('views/worker', WorkerListApiView)
+# router.register(
+#     'api_views/tenant/',
+#     TenantListApiView,
+#     'tenants_names_list',
+# )
+#
+# router.register(
+#     'api_views/worker/',
+#     WorkerListApiView,
+#     'workers_names_list',
+# )
+#
+# router.register(
+#     'api_views/provider/',
+#     ProviderListApiView,
+#     'providers_names_list',
+# )
 
-router.registry('views/provider', ProviderListApiView)
+urlpatterns += router.urls
