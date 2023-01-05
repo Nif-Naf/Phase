@@ -8,4 +8,4 @@ from all_models.models import (
 # Все модели отвечающие за сущности.
 essence_models = [Tenant, Worker, Provider]
 
-admin.register(essence_models)
+admin.site.register(essence_models)
