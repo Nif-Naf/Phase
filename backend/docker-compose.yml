@@ -1,7 +1,8 @@
 # https://crusat.ru/blog/105-kak-proshe-vsego-razvernut-django-proekt-cherez-do/
 
 # Способ создания "одноразовых" команд в Django через Docker:
-# Провести миграцию. docker-compose run --rm web python manage.py migrate
+# Создание изменений в модели. Те создание миграции. docker-compose run --rm web python manage.py makemigrations
+# Провести/отменить миграцию. docker-compose run --rm web python manage.py migrate
 # Создать суперпользователя. docker-compose run --rm web python manage.py createsuperuser
 
 version: "3.9"
