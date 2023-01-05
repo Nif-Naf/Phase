@@ -13,35 +13,38 @@ from all_models.models import (
 
 class TenantListApiView(APIView):
     """
-    Эндпоинт для получения всех имен жителей.
+    Эндпоинт для получения всех имен жителей. Без сериализация.
     Адрес: http://localhost:8000/views/api_views/tenant/
     """
 
     def get(self, request):
-        str_names = Tenant.objects.only('tenant_all_name').all()
-        result = dict(username=str_names)
-        return Response(data=result, status=OK)
+        return Response(
+            data=[user.tenant_all_name for user in Tenant.objects.all()],
+            status=OK
+        )
 
 
 class WorkerListApiView(APIView):
     """
-    Эндпоинт для получения всех имен работников.
+    Эндпоинт для получения всех имен работников. Без сериализации.
     Адрес: http://localhost:8000/views/api_views/worker/
     """
 
     def get(self, request):
-        full_names = Worker.objects.only('full_name').all()
-        result = dict(username=full_names)
-        return Response(data=result, status=OK)
+        return Response(
+            data=[worker.full_name for worker in Worker.objects.all()],
+            status=OK,
+        )
 
 
 class ProviderListApiView(APIView):
     """
-    Эндпоинт для получения всех названий организаций.
+    Эндпоинт для получения всех названий организаций. Без сериализации.
     Адрес: http://localhost:8000/views/api_views/provider/
     """
 
     def get(self, request):
-        names_organizations = Provider.objects.only('name_organization').all()
-        result = dict(username=names_organizations)
-        return Response(data=result, status=OK)
+        return Response(
+            data=[provider.name_organization for provider in Provider.objects.all()],
+            status=OK,
+        )
