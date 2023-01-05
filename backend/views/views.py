@@ -12,7 +12,10 @@ from all_models.models import (
 
 
 class TenantListApiView(APIView):
-    """Эндпоинт для получения всех имен жителей."""
+    """
+    Эндпоинт для получения всех имен жителей.
+    Адрес: http://localhost:8000/views/api_views/tenant/
+    """
 
     def get(self, request):
         str_names = Tenant.objects.only('tenant_all_name').all()
@@ -21,7 +24,10 @@ class TenantListApiView(APIView):
 
 
 class WorkerListApiView(APIView):
-    """Эндпоинт для получения всех имен работников."""
+    """
+    Эндпоинт для получения всех имен работников.
+    Адрес: http://localhost:8000/views/api_views/worker/
+    """
 
     def get(self, request):
         full_names = Worker.objects.only('full_name').all()
@@ -30,7 +36,10 @@ class WorkerListApiView(APIView):
 
 
 class ProviderListApiView(APIView):
-    """Эндпоинт для получения всех названий организаций."""
+    """
+    Эндпоинт для получения всех названий организаций.
+    Адрес: http://localhost:8000/views/api_views/provider/
+    """
 
     def get(self, request):
         names_organizations = Provider.objects.only('name_organization').all()
