@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'views',
     'viewset',
+    'all_models',
 ]
 
 MIDDLEWARE = [
